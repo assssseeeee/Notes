@@ -8,6 +8,7 @@ import com.example.notes.screens.AddScreen
 import com.example.notes.screens.MainScreen
 import com.example.notes.screens.NoteScreen
 import com.example.notes.screens.StartScreen
+import com.example.notes.ui.MainViewModel
 
 
 sealed class NavRoute(val route: String) {
@@ -18,13 +19,13 @@ sealed class NavRoute(val route: String) {
 }
 
 @Composable
-fun NotesNavHost() {
+fun NotesNavHost(viewModel: MainViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = NavRoute.Start.route) {
-        composable(NavRoute.Start.route) { StartScreen(navController = navController) }
-        composable(NavRoute.Add.route) { AddScreen(navController = navController) }
-        composable(NavRoute.Note.route) { NoteScreen(navController = navController) }
-        composable(NavRoute.Main.route) { MainScreen(navController = navController) }
+        composable(NavRoute.Start.route) { StartScreen(navController = navController, viewModel = viewModel) }
+        composable(NavRoute.Add.route) { AddScreen(navController = navController, viewModel = viewModel) }
+        composable(NavRoute.Note.route) { NoteScreen(navController = navController, viewModel = viewModel) }
+        composable(NavRoute.Main.route) { MainScreen(navController = navController, viewModel = viewModel) }
     }
 }
