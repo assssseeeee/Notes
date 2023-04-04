@@ -11,6 +11,7 @@ lateinit var REPOSITORY: DatabaseRepository
 
 object Constants {
     object Keys {
+        const val SIGN_IN = "SIGN IN"
         const val UPDATE_NOTE = "UPDATE NOTE"
         const val NAV_BACK = "NAV_BACK"
         const val NOTES_DATABASE = "notes_database"
